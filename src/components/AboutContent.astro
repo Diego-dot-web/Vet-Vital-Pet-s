@@ -1,0 +1,69 @@
+---
+import EspContent from "./EspContent.astro";
+import Footer from "./Footer.astro";
+import HorarioAtencion from "./HorarioAtencion.astro";
+
+// Importamos la imagen que has subido.
+const backgroundImage = './FondoSomos.webp';
+---
+<section class="relative h-[80vh] w-full bg-cover bg-center" style={`background-image: url(${backgroundImage});`}>
+  <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Capa oscura sobre la imagen -->
+
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
+    <h1 class="text-4xl font-bold">Somos Vital Pet’s</h1>
+    <p class="mt-4 text-xl">Tu mascota hace parte de nosotros</p>
+    <div class="mt-6 flex items-center space-x-2 text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+      </svg>
+      <span class="text-base">Somos VitalPet’s</span>
+    </div>
+  </div>
+</section>
+
+  <!-- Contenido Familia Vital Pet´s-->
+   
+  <section class="py-14 ">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Images Grid -->
+        <div class="grid grid-cols-2 gap-4">
+           <div class="flex flex-col space-y-4 hover:scale-105">
+             <img src="./Img1Family.webp" alt="Imagen 1" class="rounded-lg shadow-lg object-cover h-48 w-full">
+             <img src="./SliderImg1.webp" alt="Imagen 2" class="rounded-lg shadow-lg object-cover h-44 w-full">
+           </div>
+           
+           <div class="row-span-2 hover:scale-105">
+             <img src="./Img3Family.webp" alt="Imagen 1" class="rounded-lg shadow-lg object-cover h-96 w-full">
+           </div>
+         </div>
+         
+         
+        <!-- Text Content -->
+        <div>
+           <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center"> <!-- Añadido text-center -->
+             <span class="inline-flex items-center justify-center"> <!-- Añadido justify-center -->
+              <img src="./Icons/Icon24H.webp" alt="Icono" class="size-12 mr-10">
+               <span class="mr-4">La familia</span> <!-- Cambiar ml-8 por mr-4 -->
+               <span class="text-red-600">Vital Pet's</span>
+             </span>
+           </h2>
+           <p class="text-lg mb-6 font-bold text-center">Cuidamos con amor, protegemos con ciencia.</p>
+           <p class="mb-4 mr-8 text-justify">
+             En Vital Pet's, nacimos del amor y la pasión por los animales. Desde el primer día, nuestro objetivo ha sido brindar un espacio donde las mascotas reciban el mejor cuidado posible, rodeadas de respeto y afecto.
+           </p>
+           <p class="mb-4 mr-8 text-justify">Nuestro equipo está compuesto por profesionales altamente capacitados que comparten la misma misión: asegurar que cada mascota que entra por nuestras puertas sea tratada con el máximo cuidado, dedicación y cariño. Nos enorgullecemos de ofrecer una atención personalizada, adaptada a las necesidades de cada paciente, porque sabemos que cada mascota es especial.
+           </p>
+         </div>
+         
+      </div>
+    </div>
+  </section>
+
+  <EspContent />
+  <HorarioAtencion />
+  <Footer />
+ 
