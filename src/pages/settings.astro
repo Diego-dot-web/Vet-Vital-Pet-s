@@ -1,0 +1,11 @@
+---
+const user = Astro.locals.user;
+
+if (!user) {
+  return Astro.redirect("/login");
+}
+---
+
+<div>setting authorized {user.username}</div>
+
+<form action="/api/logout" method="post"><button>log out</button></form>

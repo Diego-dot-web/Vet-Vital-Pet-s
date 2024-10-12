@@ -1,33 +1,27 @@
 import { lucia } from "../../auth";
 import { verify } from "@node-rs/argon2";
+import { z } from "zod";
 
 import type { APIContext } from "astro";
 import { getUser } from "../../../actions/queries";
 
 export async function POST(context: APIContext): Promise<Response> {
   const formData = await context.request.formData();
-  const username = formData.get("email");
-  if (
-    typeof username !== "string" ||
-    username.length < 3 ||
-    username.length > 31
-  ) {
-    return new Response("Invalid username", {
-      status: 400,
-    });
-  }
+  const email = formData.get("email");
   const password = formData.get("password");
-  if (
-    typeof password !== "string" ||
-    password.length < 6 ||
-    password.length > 255
-  ) {
-    return new Response("Invalid password", {
-      status: 400,
-    });
-  }
 
-  const existingUser = await getUser(username);
+  const formSchema = z
+    .object({
+      email: z.string().email().min(5),
+      password: z.string().min(8),
+    })
+    .safeParse({ email, password });
+
+  if (!formSchema.success) {
+    console.log(formSchema.error.issues);
+    return new Response("Error incorrect data", { status: 400 });
+  }
+  const existingUser = await getUser(email as string);
   if (!existingUser) {
     // NOTE:
     // Returning immediately allows malicious actors to figure out valid usernames from response times,

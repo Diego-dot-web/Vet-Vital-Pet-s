@@ -2,33 +2,29 @@
 import { lucia } from "../../auth";
 import { hash } from "@node-rs/argon2";
 import { generateIdFromEntropySize } from "lucia";
+import { z } from "zod";
 
 import type { APIContext } from "astro";
 import { createUser } from "../../../actions/queries";
 
 export async function POST(context: APIContext): Promise<Response> {
   const formData = await context.request.formData();
-  const username = formData.get("email");
+  const email = formData.get("email");
+  const username = formData.get("username");
+  const password = formData.get("password");
   // username must be between 4 ~ 31 characters, and only consists of lowercase letters, 0-9, -, and _
   // keep in mind some database (e.g. mysql) are case insensitive
-  if (
-    typeof username !== "string" ||
-    username.length < 3 ||
-    username.length > 31
-  ) {
-    return new Response("Invalid username", {
-      status: 400,
-    });
-  }
-  const password = formData.get("password");
-  if (
-    typeof password !== "string" ||
-    password.length < 6 ||
-    password.length > 255
-  ) {
-    return new Response("Invalid password", {
-      status: 400,
-    });
+  const formSchema = z
+    .object({
+      username: z.string().min(3).max(31),
+      email: z.string().email().min(5),
+      password: z.string().min(8),
+    })
+    .safeParse({ username, email, password });
+
+  if (!formSchema.success) {
+    console.log(formSchema.error.issues);
+    return new Response("Data invalid", { status: 400 });
   }
 
   const userId = generateIdFromEntropySize(10); // 16 characters long
@@ -41,7 +37,7 @@ export async function POST(context: APIContext): Promise<Response> {
   });
 
   // TODO: check if username is already used
-  await createUser({ id: userId, email: username, password: passwordHash });
+  await createUser({ id: userId, email, password: passwordHash, username });
 
   const session = await lucia.createSession(userId, {});
   const sessionCookie = lucia.createSessionCookie(session.id);
