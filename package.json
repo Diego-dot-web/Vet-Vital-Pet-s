@@ -1,5 +1,5 @@
 {
-  "name": "vital-pets",
+  "name": "vital-astro",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,11 +10,25 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/node": "^8.3.4",
     "@astrojs/tailwind": "^5.1.1",
+    "@lucia-auth/adapter-prisma": "^4.0.1",
+    "@node-rs/argon2": "^2.0.0",
+    "@prisma/client": "^5.20.0",
     "astro": "^4.15.11",
+    "bcrypt": "^5.1.1",
     "flowbite": "^2.5.2",
+    "lucia": "^3.2.1",
+    "nodemailer": "^6.9.15",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/nodemailer": "^6.4.16",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prisma": "^5.20.0"
   }
 }
