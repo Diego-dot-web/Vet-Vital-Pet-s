@@ -1,5 +1,7 @@
 ---
 const user = Astro.locals.user;
+
+const { location } = Astro.props;
 ---
 
 <header class="absolute top-0 left-0 w-full z-50 bg-transparent">
@@ -18,7 +20,7 @@ const user = Astro.locals.user;
       <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <div class="flex items-center">
           <a
-            href={!user? "/login" : "/settings" }
+            href={!user ? "/login" : "/settings"}
             class="flex items-center text-white bg-red-700 hover:bg-red-800 focus:ring-4 font-medium rounded-full text-sm px-4 py-2 text-center"
           >
             <!-- Ícono con margen derecho -->
@@ -101,9 +103,10 @@ const user = Astro.locals.user;
         >
           <li>
             <a
-              href="#"
-              class="flex flex-col items-center py-2 px-3 md:p-0 text-white rounded md:hover:text-red-700 md:dark:hover:text-red-700"
-              aria-current="page"
+              href="/"
+              class={location === "inicio"
+                ? "flex flex-col items-center py-2 px-3 md:p-0  text-red-700 rounded md:hover:text-red-700 md:dark:hover:text-red-700"
+                : "flex flex-col items-center py-2 px-3 md:p-0  text-white rounded md:hover:text-red-700 md:dark:hover:text-red-700"}
             >
               <!-- Icono de Inicio -->
               <svg
@@ -116,7 +119,6 @@ const user = Astro.locals.user;
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-home"
                 ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
                   d="M5 12l-2 0l9 -9l9 9l-2 0"></path><path
                   d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path><path
@@ -129,7 +131,9 @@ const user = Astro.locals.user;
           <li>
             <a
               href="/about"
-              class="flex flex-col items-center py-2 px-3 md:p-0 text-white md:hover:text-red-700 md:dark:hover:text-red-700"
+              class={location === "somos"
+                ? "flex flex-col items-center py-2 px-3 md:p-0 text-red-700 md:hover:text-red-700 md:dark:hover:text-red-700"
+                : "flex flex-col items-center py-2 px-3 md:p-0 text-white md:hover:text-red-700 md:dark:hover:text-red-700"}
             >
               <!-- Icono de empresa -->
               <svg
@@ -142,7 +146,6 @@ const user = Astro.locals.user;
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-heart"
                 ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
                   d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
                 ></path></svg
@@ -154,7 +157,9 @@ const user = Astro.locals.user;
           <li>
             <a
               href="#"
-              class="flex flex-col items-center py-2 px-3 md:p-0 text-white md:hover:text-red-700 md:dark:hover:text-red-700"
+              class={location === "servicios"
+                ? "flex flex-col items-center py-2 px-3 md:p-0 text-red-700 md:hover:text-red-700 md:dark:hover:text-red-700"
+                : "flex flex-col items-center py-2 px-3 md:p-0 text-white md:hover:text-red-700 md:dark:hover:text-red-700"}
             >
               <!-- Icono de Servicios -->
               <svg
@@ -179,7 +184,9 @@ const user = Astro.locals.user;
           <li>
             <a
               href="/contact"
-              class="flex flex-col items-center py-2 px-3 md:p-0 text-white md:hover:text-red-700 md:dark:hover:text-red-700"
+              class={location === "contacto"
+                ? "flex flex-col items-center py-2 px-3 md:p-0 text-red-700 md:hover:text-red-700 md:dark:hover:text-red-700"
+                : "flex flex-col items-center py-2 px-3 md:p-0 text-white md:hover:text-red-700 md:dark:hover:text-red-700"}
             >
               <!-- Icono de Contacto -->
               <svg

@@ -37,12 +37,16 @@ export async function POST(context: APIContext): Promise<Response> {
     });
   }
 
-  const validPassword = await verify(existingUser.password, password, {
-    memoryCost: 19456,
-    timeCost: 2,
-    outputLen: 32,
-    parallelism: 1,
-  });
+  const validPassword = await verify(
+    existingUser.password,
+    password as string,
+    {
+      memoryCost: 19456,
+      timeCost: 2,
+      outputLen: 32,
+      parallelism: 1,
+    },
+  );
   if (!validPassword) {
     return new Response("Incorrect username or password", {
       status: 400,
