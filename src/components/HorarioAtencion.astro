@@ -11,58 +11,86 @@ const horario = {
   },
 };
 ---
-<div class="flex flex-col md:flex-row h-64">
-    <!-- Sección izquierda: Imagen -->
-    <div class="w-full md:w-1/2">
-      <img src="./FondoHA.jpg" alt="Perrito siendo atendido" class="w-full h-full object-cover" />
-    </div>
-  
-    <!-- Sección derecha: Horarios con fondo de huellas -->
-    <div class="flex flex-col md:flex-row shadow-lg overflow-hidden">
-      <div class="w-full relative p-8 flex flex-col justify-center items-center text-black" style="background-image: url('./FondoHuellas1.png'); background-size: cover;">
-        
-        <!-- Fondo azul con opacidad -->
-        <div class="absolute inset-0 bg-teal-500 opacity-85 z-0"></div>
-  
-        <!-- Contenido -->
-        <div class="relative z-10 grid grid-cols-2 gap-8 items-start w-full">
-          <!-- Título centrado en todo el contenedor -->
-          <h2 class="text-3xl font-bold text-center col-span-2">Horario de Atención</h2>
-  
-          <!-- Columna izquierda -->
-          <div class="flex flex-col space-y-4">
-            <!-- Lunes a Sábado -->
-            <div>
-              <p class="text-red-600 font-bold text-xl mb-2">Lunes a Sabado</p>
-              <p>{horario.lunesSabado.mañana}</p>
-              <p>{horario.lunesSabado.tarde}</p>
-            </div>
-  
-            <!-- Domingos y Festivos -->
-            <div>
-              <p class="text-red-600 font-bold text-xl mb-2">Domingos y Festivos</p>
-              <p>{horario.domingosFestivos}</p>
-            </div>
+
+<div class="flex flex-col md:flex-row h-72">
+  <!-- Sección izquierda: Imagen -->
+  <div class="w-full">
+    <img
+      src="./FondoHA.jpg"
+      alt="Perrito siendo atendido"
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <!-- Sección derecha: Horarios con fondo de huellas -->
+  <div class="flex flex-col md:flex-row shadow-lg overflow-hidden w-full">
+    <div
+      class="w-full relative p-16 flex flex-col justify-center items-center text-black"
+      style="background-image: url('./FondoHuellas1.png'); background-size: cover;"
+    >
+      <!-- Fondo azul con opacidad -->
+      <div class="absolute inset-0 bg-teal-500 opacity-85 z-0"></div>
+
+      <!-- Contenido -->
+      <div class="relative z-10 grid grid-cols-2 gap-8 items-start w-full">
+        <!-- Título centrado en todo el contenedor -->
+        <h2 class="text-3xl font-bold text-center col-span-2">
+          Horario de Atención
+        </h2>
+
+        <!-- Columna izquierda -->
+        <div class="flex flex-col space-y-4">
+          <!-- Lunes a Sábado -->
+          <div>
+            <p class="text-red-600 font-bold text-xl mb-2">Lunes a Sabado</p>
+            <p>{horario.lunesSabado.mañana}</p>
+            <p>{horario.lunesSabado.tarde}</p>
           </div>
-  
-          <!-- Columna derecha -->
-          <div class="flex flex-col space-y-4 items-end">
-            <!-- Emergencias -->
-            <div class="flex items-center space-x-2">
-              <img src="/src/assets/icono_reloj.png" alt="Icono reloj" class="w-8 h-8" />
-              <p class="text-red-600 font-bold text-xl">{horario.contacto.emergencia}</p>
-            </div>
-  
-            <!-- Teléfono -->
-            <div class="flex items-center space-x-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2.003 5.884a4.516 4.516 0 00.59 1.685l.024.04c.336.533.768 1.125 1.284 1.755.516.63 1.131 1.21 1.8 1.706l.028.02c.82.609 1.694 1.09 2.648 1.399 1.016.324 2.127.373 3.185-.1l.04-.017c.625-.259 1.183-.697 1.615-1.28l.03-.04c.505-.64.89-1.336 1.162-2.085l.036-.11a3.61 3.61 0 00-.063-2.742l-.023-.04a1.516 1.516 0 00-.622-.64c-.573-.34-1.257-.499-1.949-.365a9.042 9.042 0 01-1.615.214l-.007-.004c-.663-.11-1.29-.37-1.8-.724-.633-.426-1.217-.952-1.794-1.465-.657-.58-1.263-1.214-1.878-1.918-.26-.29-.51-.581-.738-.889-.362-.483-.602-1.053-.681-1.682a1.518 1.518 0 00-.393-.771l-.034-.042a3.59 3.59 0 00-1.314-.9l-.041-.02A1.518 1.518 0 003.584 2l-.004.003a1.518 1.518 0 00-1.085.978 9.028 9.028 0 00-.496 2.9z" />
-              </svg>
-              <p class="text-xl">{horario.contacto.telefono}</p>
-            </div>
+
+          <!-- Domingos y Festivos -->
+          <div>
+            <p class="text-red-600 font-bold text-xl mb-2">
+              Domingos y Festivos
+            </p>
+            <p>{horario.domingosFestivos}</p>
+          </div>
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="relative flex flex-col space-y-4 items-center">
+          <!-- Emergencias -->
+          <div class="flex items-center space-x-2">
+            <img
+              src="./relojvet.png"
+              alt="Icono reloj"
+              class="size-16 absolute left-40 bottom-[7.2rem]"
+            />
+            <p class="text-red-600 font-bold text-xl">
+              {horario.contacto.emergencia}
+            </p>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="flex items-center space-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-phone"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+              ></path></svg
+            >
+            <p class="text-xl">{horario.contacto.telefono}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
