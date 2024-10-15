@@ -1,4 +1,5 @@
 import type { APIContext } from "astro";
+import { z } from "zod";
 import { transporter } from "../../../actions/vetController.ts";
 
 const errors = { username: "", email: "", tel: "", service: "", message: "" };
@@ -10,6 +11,19 @@ export async function POST(context: APIContext) {
     const email = data.get("email");
     const message = data.get("mensaje");
     const tel = data.get("telefono");
+
+    const formSchema = z
+      .object({
+        name: z.string().min(1),
+        email: z.string().min(1),
+        message: z.string().min(1),
+        tel: z.string().min(1),
+      })
+      .safeParse({ name, email, message, tel });
+
+    if (!formSchema.success) {
+      throw new Error("No se pueden dejar campos en blanco");
+    }
 
     const hasErrors = Object.values(errors).some((msg) => msg);
     if (!hasErrors) {
