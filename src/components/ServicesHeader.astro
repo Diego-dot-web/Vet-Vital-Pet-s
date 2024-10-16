@@ -2,6 +2,8 @@
 const user = Astro.locals.user;
 
 const { location } = Astro.props;
+
+const logo1 = "../../Logo.webp";
 ---
 
 <header class="absolute top-0 left-0 w-full z-50 bg-transparent">
@@ -13,7 +15,7 @@ const { location } = Astro.props;
         href="https://flowbite.com/"
         class="flex items-center space-x-3 rtl:space-x-reverse"
       >
-        <img src="./Logo.webp" class="h-28" alt="Logo 1" />
+        <img src=`${logo1}` class="h-28" alt="Logo 1" />
         <img src="./Logo2.webp" class="h-14" alt="Logo 2" />
       </a>
 
@@ -40,7 +42,7 @@ const { location } = Astro.props;
               <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
               <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
             </svg>
-            {!user ? "Entrar" : user.username}
+            {!user ? "Entrar" : user?.username}
           </a>
 
           <!-- Ícono de Maps -->

@@ -1,0 +1,71 @@
+---
+import Footer from "../components/Footer.astro";
+import Indexline from "../components/Indexline.astro";
+import Layout from "../layouts/Layout.astro";
+const backgroundImage = "./servicesBack.png";
+const fondoHuellas = "./FondoHuellas1.png";
+---
+
+<Layout title="Servicion - VitalPet’s" location="servicios">
+  <section
+    class="relative h-[80vh] w-full bg-cover bg-center"
+    style={`background-image: url(${backgroundImage});`}
+  >
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <!-- Capa oscura sobre la imagen -->
+
+    <div
+      class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white"
+    >
+      <h1 class="text-4xl font-bold">Nuestros Servicios</h1>
+      <p class="mt-4 text-xl">Tu mascota hace parte de nosotros</p>
+      <div class="mt-6 flex items-center space-x-2 text-white">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-home"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+          <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+          <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
+        </svg>
+        <span class="text-base"> > Somos VitalPet’s</span>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="relative bg-[#179BAED9]/85 bg-cover bg-no-repeat flex flex-row-reverse items-start mt-12 h-96"
+    style=`background-image: url(${fondoHuellas});`
+  >
+    <div class="flex flex-col items-center p-20 pl-64 gap-5 pt-12 pb-8 pr-80">
+      <h1 class="text-5xl font-medium">
+        Nuestros <span class="font-medium text-5xl text-red-600">Servicios</span
+        >
+      </h1>
+      <p class="font-medium text-xl text-justify px-20 w-[1012px]">
+        En Vital Pets, nos apasiona cuidar y brindar lo mejor para tu mascota.
+        Ofrecemos una variedad de servicios especializados y valores agregados
+        diseñados para su bienestar. Con nosotros, puedes disfrutar de la
+        tranquilidad y confianza que necesitas para el cuidado de tu compañero.
+        Te invitamos a descubrir todo lo que tenemos para ofrecerte y a ser
+        parte de la experiencia Vital Pets.
+      </p>
+    </div>
+    <img
+      src="./perritocongafas.png"
+      alt="Imagen de un perro con gafas de sol"
+      class="absolute left-80 bottom-7"
+    />
+  </section>
+  <Indexline />
+  <Footer />
+</Layout>

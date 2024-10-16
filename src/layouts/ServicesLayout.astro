@@ -1,0 +1,46 @@
+---
+import Header from "../components/Header.astro";
+import ServicesHeader from "../components/ServicesHeader.astro";
+import WhatsAppIcon from "../components/WhatsAppIcon.astro";
+
+interface Props {
+  title: string;
+  location: string;
+}
+
+const { title, location } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="Logo" href="./Logo.webp" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <ServicesHeader location={location} />
+    <slot />
+
+    <WhatsAppIcon />
+    <script
+      is:inline
+      src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"
+    ></script>
+  </body>
+</html>
+<style is:global>
+  :root {
+  }
+
+  html {
+    font-family: Kiwi Maru;
+  }
+</style>
