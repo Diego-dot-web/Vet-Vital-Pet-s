@@ -7,12 +7,14 @@ import node from "@astrojs/node";
 
 import vercel from "@astrojs/vercel/serverless";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
   output: "server",
 
-  adapter: vercel(),
+  adapter: netlify(),
 
   security: {
     checkOrigin: true,
