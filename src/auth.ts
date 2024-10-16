@@ -17,7 +17,7 @@ export const lucia = new Lucia(adapter, {
 });
 
 declare module "lucia" {
-  interface register {
+  interface Register {
     Lucia: typeof lucia;
     DataUserAttributes: DataUserAttributes;
   }

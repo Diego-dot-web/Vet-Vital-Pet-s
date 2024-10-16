@@ -2,8 +2,6 @@ import type { APIContext } from "astro";
 import { z } from "zod";
 import { transporter } from "../../../actions/vetController.ts";
 
-const errors = { username: "", email: "", tel: "", service: "", message: "" };
-
 export async function POST(context: APIContext) {
   try {
     const data = await context.request.formData();

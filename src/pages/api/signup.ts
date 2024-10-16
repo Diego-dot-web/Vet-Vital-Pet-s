@@ -9,8 +9,8 @@ import { createUser } from "../../../actions/queries";
 
 export async function POST(context: APIContext): Promise<Response> {
   const formData = await context.request.formData();
-  const email = formData.get("email");
-  const username = formData.get("username");
+  const email = formData.get("email") as string;
+  const username = formData.get("username") as string;
   const password = formData.get("password");
   // username must be between 4 ~ 31 characters, and only consists of lowercase letters, 0-9, -, and _
   // keep in mind some database (e.g. mysql) are case insensitive
@@ -28,7 +28,7 @@ export async function POST(context: APIContext): Promise<Response> {
   }
 
   const userId = generateIdFromEntropySize(10); // 16 characters long
-  const passwordHash = await hash(password, {
+  const passwordHash = await hash(password as string, {
     // recommended minimum parameters
     memoryCost: 19456,
     timeCost: 2,
