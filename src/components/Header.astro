@@ -183,6 +183,36 @@ const { location } = Astro.props;
 
           <li>
             <a
+              href="/tienda"
+              class={location === "tienda"
+                ? "flex flex-col items-center py-2 px-3 md:p-0 text-red-700 md:hover:text-red-700 md:dark:hover:text-red-700"
+                : "flex flex-col items-center py-2 px-3 md:p-0 text-white md:hover:text-red-700 md:dark:hover:text-red-700"}
+            >
+              <!-- Icono de Tienda -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path
+                  d="M17 17h-11v-14h-2"></path><path d="M6 5l14 1l-1 7h-13"
+                ></path></svg
+              >
+              Tienda
+            </a>
+          </li>
+
+          <li>
+            <a
               href="/contact"
               class={location === "contacto"
                 ? "flex flex-col items-center py-2 px-3 md:p-0 text-red-700 md:hover:text-red-700 md:dark:hover:text-red-700"
